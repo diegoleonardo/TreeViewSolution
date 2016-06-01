@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "TreeViewEasyUI";
+}
+<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+<h2>TreeViewEasyUI</h2>
+@*<ul id="tt" class="easyui-tree"
+    url="~/data/tree_data.json"
+    checkbox="true">
+</ul>*@
+@*<ul id="tt" class="easyui-tree" data-options="url:'@Url.Action("GetDataJsonTreeView", "TreeViews")'">
+</ul>*@
+<ul id="tt" class="easyui-tree" checkbox="true">
+</ul>
+<script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+<script>
+    $('#tt').tree({
+        url: '@Url.Action("GetDataJsonTreeView", "TreeViews")',
+        loadFilter: function (data) {
+            debugger
+            if (data.d){
+                return data.d;
+            } else {
+                return data;
+            }
+        }
+    });
+</script>
